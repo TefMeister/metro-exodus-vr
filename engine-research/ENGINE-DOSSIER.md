@@ -71,3 +71,8 @@
 - **Direct3D 12 with ray tracing always on** is the hardest renderer shape on the account so far: ray-traced lighting is worked out from the camera's position, so a second eye may not be as simple as drawing the scene twice `[hypothesis]`. Death Stranding (`death-stranding-vr`) is the only other Direct3D 12 project, and it has no stereo result yet.
 - The Steam DRM wrapper hides the real start of the program until it has unpacked itself, so some static reading may have to wait for a running copy.
 - The original (non-Enhanced) Metro Exodus has a Direct3D 11 path `[reported]`; this Enhanced Edition install does not appear to `[inferred-static 2026-09-13]`.
+
+## Inbox folds, 2026-09-29
+
+**Console route and VR prior art (`/gr` 2026-09-17).** No shipped console switch is known; a public Cheat Engine table (SunBeam, AltSierra117) patches the running game so F1 toggles the console `[reported]`. Hidden settings live in `Saved Games\Metro Exodus\user.cfg`, and console changes are not written back `[reported]`, which matters for the windowing job. Arktika.1 ran on the 4A Engine with Rift support, but no public source mentions the `vr_*` names in Exodus. Topic: `external-research/topics/2026-09-17-console-user-cfg-and-exodus-sdk.md`.
+
