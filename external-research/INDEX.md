@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: no entry for the 4A Engine. Nothing new.
+**Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Inbox empty; one search for the `-vr_profile` / `vr_*` names found no public mention (vorpX threads only). Nothing new.
+
+_Previous: **Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: no entry for the 4A Engine. Nothing new.
 
 _Previous: **Last `/gr` pass: 2026-09-17 (estate sweep) — FULL.** First pass on this project: folder bootstrapped, the modding lane's project-start hand-off drained, two topics written (console, `user.cfg` and the Exodus SDK; Arktika.1 history and vorpX on the Enhanced Edition), and a pointer sent to `engine-research/inbox/`. Metro Awakening was not checked._
 
