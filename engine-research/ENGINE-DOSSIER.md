@@ -5,7 +5,7 @@
 > `dev-archive/` and `modding-notes/` folders; this file is the *distilled current
 > truth*. Update it whenever a fact changes; correct false leads in place.
 
-**Status:** M0, first static look (2026-09-13); the game has not been launched yet. · **VR-readiness verdict:** TBD. Nothing seen so far rules it out, and the leftover VR code (§12) is a real head start if it is reachable.
+**Status:** M0. First launch 2026-09-30 on the dev PC crashed before the main menu (no DXR 1.1 on its card); all live work is home-PC only. · **VR-readiness verdict:** TBD. The renderer still holds a dormant two-eye path and a `-build_key oculus` build variant (§12), but no headset code and no per-eye maths.
 
 ## 1. Identity
 - Game / build / version: Metro Exodus Enhanced Edition, Steam app 1449560, build 24973569, fully downloaded (72 GB). Game exe `MetroExodus.exe`; `Benchmark.exe` sits beside it. No separate launcher exe.
@@ -64,7 +64,8 @@
 - Frame-capture method; where images land:
 
 ## 11. Dead ends & false leads (save future time)
-- none yet.
+- **The dev PC cannot run the Enhanced Edition.** GTX 1660 SUPER: the game warns "does not support DXR1.1", Run Anyway plays the intros, the title screen builds shaders for ~6 min, then an access violation inside `D3D12Core.dll` `[verified-live 2026-09-30, n=1]`. The exe has no DirectX 11 or non-ray-traced renderer: `r_api_rx` 0 = "DirectX 11 (Obsolete)" is refused, 2 = Vulkan has no backend, and "Run Anyway" changes no setting `[inferred-static 2026-09-30]`. Evidence: `dev-archive/recon/2026-09-30-first-launch-dev-pc/`.
+- **`-vr_profile` is not a headset switch.** It creates 17 GPU objects, most likely timers for profiling `[hypothesis]`.
 
 ## 12. Open risks toward the North Star
 - ⭐ **Leftover VR code is inside the exe.** A `-vr_profile` command-line string, dozens of VR tuning names (`vr_hand_speed`, `vr_grab_lerp_dur`, `vr_bias_hmd_height`, `vr_max_aim_angle`, `vr_noclip_dur`), `oculus_touch_presets`, "Negate VR HMD Offset", `allow_in_vr`, `post_vr`, and VR weapon classes (`weapon_item_vr_attach`, `vr_missile_weapon`) `[inferred-static 2026-09-13]`. 4A Games shipped a VR game, *Arktika.1* (2017), on this engine `[reported]`, which is the likely origin `[hypothesis]`. **No OpenVR, OpenXR or Oculus runtime DLL names were found**, so the headset connection itself may have been stripped and only the gameplay-side VR code left. Unchecked either way.
@@ -75,4 +76,16 @@
 ## Inbox folds, 2026-09-29
 
 **Console route and VR prior art (`/gr` 2026-09-17).** No shipped console switch is known; a public Cheat Engine table (SunBeam, AltSierra117) patches the running game so F1 toggles the console `[reported]`. Hidden settings live in `Saved Games\Metro Exodus\user.cfg`, and console changes are not written back `[reported]`, which matters for the windowing job. Arktika.1 ran on the 4A Engine with Rift support, but no public source mentions the `vr_*` names in Exodus. Topic: `external-research/topics/2026-09-17-console-user-cfg-and-exodus-sdk.md`.
+
+## Inbox folds, 2026-09-30
+
+Two static reads by the `/lm` reader helper; full detail with code addresses in
+`dev-archive/recon/2026-09-30-first-launch-dev-pc/2026-09-30-pd-reader-*.md`.
+
+- **Static reading works despite the Steam wrapper**: the code section is not encrypted `[inferred-static 2026-09-30]`.
+- **Windowing (§4, §10):** `user.cfg` in `Saved Games\Metro Exodus\<steamid>\` is run as a console script at every start. Candidate lines `r_fullscreen off`, `r_res_hor 1280`, `r_res_vert 720`. No borderless setting, no command-line window switch `[inferred-static 2026-09-30]`; untested live.
+- **Crash trap (§10):** a crash sets `HKCU\Software\4A-Games\Metro Exodus\BadQuit` to 1 `[verified-live 2026-09-30, n=1]`, and the next start then offers safe mode, which lowers every graphics setting `[inferred-static 2026-09-30]`. Reset it to 0 before an unattended relaunch.
+- **Launch switches (§9):** `-forcelog`, `-logpath <dir>`, `-nocrashdlg`, `-map <name>`, `-build_key`, `-force_rapi`, `-benchmark` and more; effects inferred from names only.
+- ⭐ **`vr_stereo` (§12):** a real renderer setting, default off, read every frame by ~20 functions. On, it swaps the last screen shader for `post_vr`, turns some effects off and skips the present-preparation step. The eye-number slot it would use is only ever written as -1, so the two-eye branches never run: **no stereo picture as-is** `[inferred-static 2026-09-30]`. No eye offset, IPD, per-eye projection or headset pose exists; those would be ours. Medium crash risk at the first frame `[hypothesis]`.
+- ⭐ **`-build_key oculus` (§12):** a real launch switch; values `m3` (default) and `oculus`, checked in 72 places across gameplay, menus and rendering, several beside the `vr_stereo` checks `[inferred-static 2026-09-30]`. Probably the Arktika-era VR build variant `[hypothesis]`. The strongest lead so far; needs one flat run on the home PC.
 
