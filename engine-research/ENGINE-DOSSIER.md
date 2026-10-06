@@ -89,3 +89,46 @@ Two static reads by the `/lm` reader helper; full detail with code addresses in
 - ⭐ **`vr_stereo` (§12):** a real renderer setting, default off, read every frame by ~20 functions. On, it swaps the last screen shader for `post_vr`, turns some effects off and skips the present-preparation step. The eye-number slot it would use is only ever written as -1, so the two-eye branches never run: **no stereo picture as-is** `[inferred-static 2026-09-30]`. No eye offset, IPD, per-eye projection or headset pose exists; those would be ours. Medium crash risk at the first frame `[hypothesis]`.
 - ⭐ **`-build_key oculus` (§12):** a real launch switch; values `m3` (default) and `oculus`, checked in 72 places across gameplay, menus and rendering, several beside the `vr_stereo` checks `[inferred-static 2026-09-30]`. Probably the Arktika-era VR build variant `[hypothesis]`. The strongest lead so far; needs one flat run on the home PC.
 
+
+## 2026-10-06 (`/lm`, dev PC): the ORIGINAL edition runs here — first live session
+
+The original 2019 edition (Steam appid 412020, build 6544595, `E:\SteamLibrary\steamapps\common\Metro Exodus`, 71 GB)
+was installed on the dev PC for this project, because the Enhanced Edition cannot run on its GTX 1660 SUPER.
+Full helper notes (folded from inbox, kept whole): `dev-archive/recon/2026-10-06-original-edition-static/`.
+
+**First-run checklist, all done** `[verified-live 2026-10-06]`:
+1. **Runs as shipped**: `steam://run/412020` → intro films (Escape skips each) → main menu (n=2).
+2. **Runs with our file**: logging `dxgi.dll` proxy (staging `logging-proxy-2026-10-06`, `88d7bf4ab83b`, 19/19
+   exports) loads and passes every call through (n=1). The exe loads `dxgi`/`d3d11`/`d3d12`/`vulkan-1` by name at run
+   time; nothing is imported up front `[inferred-static 2026-10-06]`.
+3. **Windowed 1280×720**: `user.cfg` `r_fullscreen off` gives a captioned window the size of the desktop (the game
+   ignores `r_res_hor/r_res_vert` for the window); `SetWindowPos` to a 1280×720 client area then works, the picture
+   fills it, the desktop stays 1920×1080 (n=1). **Needs Tefa's confirmation** (rule).
+4. **Music muted**: `s_music_volume 0.00` in `user.cfg`, kept by the game (n=2).
+- `user.cfg` lives in `%USERPROFILE%\Saved Games\Metro Exodus\<steamid>\` and is SHARED with the Enhanced Edition;
+  the game rewrites it at start and exit. Backup: `user.cfg.bak-2026-10-06-before-original-edition`.
+- Menus: arrows + Enter (the small screen names the selected button); the game's pointer ignores absolute mouse
+  moves. Quit: main menu Escape → QUIT GAME → Enter. ⚠️ Enter on the main menu acts on NEW GAME by default.
+
+**Renderer: Direct3D 12 by default, and `r_api` in user.cfg cannot change it.**
+- Live: with `r_api 2` in user.cfg the game still created a D3D12 device and loaded `NvHairWorksDx12.win64.dll`
+  `[verified-live 2026-10-06, n=1]`. (`D3D12Core.dll` alone proves nothing: every start makes a test DX12 device.)
+- Static: the pick is at RVA `0xd8cf23`; `r_api` 2 = DX11, 3 = DX12 (built-in default), 4 = Vulkan; `r_api` accepts
+  one change per start and renderer creation spends it before user.cfg applies `[inferred-static 2026-10-06]`.
+  **`-force_rapi 2` on the command line** is read inside renderer creation and should give DX11
+  (log `* [render] DX11 API selected`) — **not tested**: starting `MetroExodus.exe` directly with arguments exits
+  silently (Steam wrapper), and `steam://run/412020//-force_rapi 2` brings up Steam's launch-options confirmation,
+  which Tefa must press once. Or Tefa adds `-force_rapi 2` to the game's Steam launch options.
+
+**VR leftovers in the original exe** `[inferred-static 2026-10-06]`:
+- `-build_key oculus` (72 checks): its clearest effect is in DX11 window setup, acting like `-m1` — the window moves
+  to the SECOND monitor (old Oculus "extended mode", the Rift as a second screen). Also a `\pc_01_citadel` path
+  suffix and some menu/loading/camera changes. It meets `vr_stereo` only in the main scene renderer and two passes.
+- `vr_stereo` **never draws two eyes**: eye index only ever -1; no LibOVR/OpenVR/OpenXR anywhere. It sets the
+  renderer's "stereo active" flag (normally NVIDIA 3D Vision), swaps the final shader for `post_vr`, turns off SSR,
+  filtered AO and TAA jitter, and changes DX11 swapchain sizing.
+- **Camera to patch per eye (CPU side, works for DX11 and DX12 alike):** view matrix at RVA `0x2111640`, projection
+  `0x2111680`, view×projection `0x21116c0`, built each frame by `0xde46b0` (called from the main scene render
+  `0xd859f0`); swapping a per-eye view/projection before the multiply (`0xde4ad9`–`0xde4c70`) is the patch point.
+  `r_base_fov` at `0x162ebe4`. Where DX11 copies them into a constant buffer: not found yet.
+- Copy protection: only the Steam wrapper (`.bind`); code not encrypted; no Denuvo/VMProtect/Themida strings.
