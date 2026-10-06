@@ -1,0 +1,11 @@
+[2026-10-06 20:10:33.388] === metroexodus dxgi.dll proxy attached, PID 13084, exe E:\SteamLibrary\steamapps\common\Metro Exodus\MetroExodus.exe ===
+[2026-10-06 20:10:33.399] real dll: C:\Windows\system32\dxgi.dll (loaded at 00007FFC50240000), 19 of 19 exports resolved
+[2026-10-06 20:10:33.400] first call: CreateDXGIFactory2 (ordinal 12) thread 8844
+[2026-10-06 20:10:33.863] first call: CreateDXGIFactory1 (ordinal 11) thread 8844
+[2026-10-06 20:10:33.866] first call: CompatValue (ordinal 3) thread 8844
+[2026-10-06 20:10:34.492] === metroexodus dxgi.dll proxy detached (FreeLibrary) ===
+[2026-10-06 20:10:34.775] === metroexodus dxgi.dll proxy attached, PID 13084, exe E:\SteamLibrary\steamapps\common\Metro Exodus\MetroExodus.exe ===
+[2026-10-06 20:10:34.795] real dll: C:\Windows\system32\dxgi.dll (loaded at 00007FFC50240000), 19 of 19 exports resolved
+[2026-10-06 20:10:34.834] first call: CreateDXGIFactory2 (ordinal 12) thread 8844
+[2026-10-06 20:10:35.272] first call: CreateDXGIFactory1 (ordinal 11) thread 8844
+[2026-10-06 20:10:35.274] first call: CompatValue (ordinal 3) thread 8844
