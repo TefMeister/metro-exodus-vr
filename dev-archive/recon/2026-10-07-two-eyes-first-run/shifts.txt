@@ -1,0 +1,4 @@
+Alternate mode (mode 0, half_ipd 0.032), 24 BitBlt grabs ~11 ms apart, horizontal shift vs frame 0:
+far : 0 -2 0 -2 0 -2 0 -2 0 -2 0 -2 0 -2 0 -2 0 -2 0 -2 0 -2 0
+gun : 0 -2 0 -3 0 -3 0 -3 0 -3 0 -3 0 -3 0 -3 0 -4 0 -4 0 -4 0
+Left-only vs right-only stills: both regions -6 px (idle sway between the two grabs; inconclusive).
