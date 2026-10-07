@@ -132,3 +132,7 @@ Full helper notes (folded from inbox, kept whole): `dev-archive/recon/2026-10-06
   `0xd859f0`); swapping a per-eye view/projection before the multiply (`0xde4ad9`–`0xde4c70`) is the patch point.
   `r_base_fov` at `0x162ebe4`. Where DX11 copies them into a constant buffer: not found yet.
 - Copy protection: only the Steam wrapper (`.bind`); code not encrypted; no Denuvo/VMProtect/Themida strings.
+
+- **2026-10-07: DirectX 11 confirmed.** Tefa put `-force_rapi 2` in the game's Steam launch options; started with
+  `steam://run/412020` the process command line carries it and `NvHairWorksDx11.win64.dll` loads (no Dx12 one)
+  `[verified-live 2026-10-07, n=1]`. Window resized to 1280×720 the same way.
