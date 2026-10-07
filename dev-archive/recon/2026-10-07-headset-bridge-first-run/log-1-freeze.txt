@@ -1,0 +1,8 @@
+[12:16:04.594][tid 9108] metro_eye (headset-bridge 2026-10-07): exe base 00007FF669030000, state block at 00007FFDDCD93008 (magic MEYE0001)
+[12:16:04.594][tid 9108] settings: enabled 1 mode 0 half_ipd 0.0320; numpad5 toggles, numpad8 cycles mode
+[12:16:04.595][tid 9108] mxr: ON - headset thread started (own device); eyes as a floating screen per eye, TEST PATTERN; swap_eyes 0, eye_source fifo
+[12:16:04.595][tid 1276] mxr: runtime for this game only: D:\claude video game stuff\tools\OpenXR-Simulator\openxr_simulator.json
+[12:16:05.330][tid 9108] present_hook: Present at 00007FFE075818C0: MH_OK
+[12:16:05.377][tid 9108] present_hook: Present1 at 00007FFE075EABC0: MH_OK
+[12:16:05.492][tid 1276] mxr: waiting for the game's first frame before starting the session
+[12:16:05.645][tid 9108] camera: hook on scene render (RVA 0xd859f0): MH_OK

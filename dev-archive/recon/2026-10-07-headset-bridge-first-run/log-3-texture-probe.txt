@@ -1,0 +1,60 @@
+[12:32:41.164][tid 5460] metro_eye (headset-bridge 2026-10-07): exe base 00007FF669030000, state block at 00007FFDDCA83008 (magic MEYE0001)
+[12:32:41.164][tid 5460] settings: enabled 1 mode 0 half_ipd 0.0320; numpad5 toggles, numpad8 cycles mode
+[12:32:41.165][tid 5460] mxr: ON - headset thread started (own device); eyes as per-eye projection views, TEST PATTERN; swap_eyes 0, eye_source fifo
+[12:32:41.165][tid 19620] mxr: runtime for this game only: D:\claude video game stuff\tools\OpenXR-Simulator\openxr_simulator.json
+[12:32:41.892][tid 5460] present_hook: Present at 00007FFE075818C0: MH_OK
+[12:32:41.948][tid 5460] present_hook: Present1 at 00007FFE075EABC0: MH_OK
+[12:32:42.062][tid 19620] mxr: waiting for the game's first frame before starting the session
+[12:32:42.224][tid 5460] camera: hook on scene render (RVA 0xd859f0): MH_OK
+[12:32:44.121][tid 19388] present_hook: game swapchain 00000246E324B070, 1920x1061 format 28, 3 buffer(s), swap effect 4, samples 1, window 00000000002106CE "4A Engine" class "_uengine_"; device flags 0x0; only it runs per-frame work
+[12:32:44.121][tid 19388] present_hook: 1 game Present(s)
+[12:32:44.121][tid 19388] present 1: eye BOTH, scene renders waiting 0, dropped 0, empty 1; render thread 0, present thread 19388
+[12:32:44.126][tid 19620] mxr: session created on the headset thread's own device; waiting for the runtime to start it
+[12:32:44.158][tid 19620] mxr: session running
+[12:32:44.160][tid 19620] mxr: two 1280x720 eye swapchains, format 29
+[12:32:44.161][tid 19620] mxr: screen placed at head height 1.70 m
+[12:32:44.172][tid 19620] present_hook: 1 headset-runtime Present(s) passed through
+[12:32:44.207][tid 19388] present 2: eye BOTH, scene renders waiting 0, dropped 0, empty 2; render thread 0, present thread 19388
+[12:32:44.207][tid 19388] mxr probe: misc 0x0 bind 0x28 -> hr 0x00000000
+[12:32:44.208][tid 19388] mxr probe: misc 0x0 bind 0x8 -> hr 0x00000000
+[12:32:44.208][tid 19388] mxr probe: misc 0x0 bind 0x0 -> hr 0x00000000
+[12:32:44.208][tid 19388] mxr probe: misc 0x2 bind 0x28 -> hr 0x00000000
+[12:32:44.208][tid 19388] mxr probe: misc 0x2 bind 0x8 -> hr 0x00000000
+[12:32:44.208][tid 19388] mxr probe: misc 0x2 bind 0x0 -> hr 0x00000000
+[12:32:44.208][tid 19388] mxr probe: misc 0x100 bind 0x28 -> hr 0x80070057
+[12:32:44.209][tid 19388] mxr probe: misc 0x100 bind 0x8 -> hr 0x80070057
+[12:32:44.209][tid 19388] mxr probe: misc 0x100 bind 0x0 -> hr 0x80070057
+[12:32:44.209][tid 19388] mxr probe: misc 0x900 bind 0x28 -> hr 0x80070057
+[12:32:44.209][tid 19388] mxr probe: misc 0x900 bind 0x8 -> hr 0x80070057
+[12:32:44.209][tid 19388] mxr probe: misc 0x900 bind 0x0 -> hr 0x80070057
+[12:32:44.209][tid 19388] mxr probe: misc 0x802 bind 0x28 -> hr 0x00000000
+[12:32:44.209][tid 19388] mxr probe: misc 0x802 bind 0x8 -> hr 0x00000000
+[12:32:44.209][tid 19388] mxr probe: misc 0x802 bind 0x0 -> hr 0x00000000
+[12:32:44.209][tid 19388] mxr: could not make the shared eye texture (1920x1061 format 28): step 1 (1 create, 2 keyed mutex, 3 resource1, 4 NT shared handle) hr 0x80070057; device feature level 0xb100
+[12:32:44.225][tid 19620] mxr diag: headset frames 1, with layers 1 (last 1), shouldRender 1; game copies 0, game busy 0; headset pulls 0, headset busy 0; open fails 0 (last hr 0x00000000); serial L 0/0 R 0/0 (game/seen); have L0 R0; swapchain image timeouts 0; TEST PATTERN
+[12:32:44.225][tid 19620] mxr: 1 headset frames submitted
+[12:32:44.233][tid 19388] present 3: eye BOTH, scene renders waiting 0, dropped 0, empty 3; render thread 0, present thread 19388
+[12:32:44.233][tid 19388] mxr: could not make the shared eye texture (1920x1061 format 28): step 1 (1 create, 2 keyed mutex, 3 resource1, 4 NT shared handle) hr 0x80070057; device feature level 0xb100
+[12:32:44.261][tid 19388] present 4: eye BOTH, scene renders waiting 0, dropped 0, empty 4; render thread 0, present thread 19388
+[12:32:44.261][tid 19388] mxr: could not make the shared eye texture (1920x1061 format 28): step 1 (1 create, 2 keyed mutex, 3 resource1, 4 NT shared handle) hr 0x80070057; device feature level 0xb100
+[12:32:44.292][tid 19388] present 5: eye BOTH, scene renders waiting 0, dropped 0, empty 5; render thread 0, present thread 19388
+[12:32:44.292][tid 19388] mxr: could not make the shared eye texture (1920x1061 format 28): step 1 (1 create, 2 keyed mutex, 3 resource1, 4 NT shared handle) hr 0x80070057; device feature level 0xb100
+[12:32:44.317][tid 19388] present 6: eye BOTH, scene renders waiting 0, dropped 0, empty 6; render thread 0, present thread 19388
+[12:32:44.317][tid 19388] mxr: could not make the shared eye texture (1920x1061 format 28): step 1 (1 create, 2 keyed mutex, 3 resource1, 4 NT shared handle) hr 0x80070057; device feature level 0xb100
+[12:32:44.360][tid 19388] present 7: eye BOTH, scene renders waiting 0, dropped 0, empty 7; render thread 0, present thread 19388
+[12:32:44.383][tid 19388] present 8: eye BOTH, scene renders waiting 0, dropped 0, empty 8; render thread 0, present thread 19388
+[12:32:44.418][tid 19388] present 9: eye BOTH, scene renders waiting 0, dropped 0, empty 9; render thread 0, present thread 19388
+[12:32:44.451][tid 19388] present 10: eye BOTH, scene renders waiting 0, dropped 0, empty 10; render thread 0, present thread 19388
+[12:32:44.485][tid 19388] present 11: eye BOTH, scene renders waiting 0, dropped 0, empty 11; render thread 0, present thread 19388
+[12:32:44.520][tid 19388] present 12: eye BOTH, scene renders waiting 0, dropped 0, empty 12; render thread 0, present thread 19388
+[12:32:54.159][tid 19620] mxr diag: headset frames 601, with layers 601 (last 1), shouldRender 1; game copies 0, game busy 0; headset pulls 0, headset busy 0; open fails 0 (last hr 0x00000000); serial L 0/0 R 0/0 (game/seen); have L0 R0; swapchain image timeouts 0; TEST PATTERN
+[12:32:54.209][tid 19620] present_hook: 601 headset-runtime Present(s) passed through
+[12:32:59.158][tid 19620] mxr: 901 headset frames submitted
+[12:33:04.157][tid 19620] mxr diag: headset frames 1201, with layers 1201 (last 1), shouldRender 1; game copies 0, game busy 0; headset pulls 0, headset busy 0; open fails 0 (last hr 0x00000000); serial L 0/0 R 0/0 (game/seen); have L0 R0; swapchain image timeouts 0; TEST PATTERN
+[12:33:04.208][tid 19620] present_hook: 1201 headset-runtime Present(s) passed through
+[12:33:04.840][tid 19388] present 600: eye BOTH, scene renders waiting 0, dropped 0, empty 600; render thread 0, present thread 19388
+[12:33:14.141][tid 19620] mxr diag: headset frames 1801, with layers 1801 (last 1), shouldRender 1; game copies 0, game busy 0; headset pulls 0, headset busy 0; open fails 0 (last hr 0x00000000); serial L 0/0 R 0/0 (game/seen); have L0 R0; swapchain image timeouts 0; TEST PATTERN
+[12:33:14.141][tid 19620] mxr: 1801 headset frames submitted
+[12:33:14.208][tid 19620] present_hook: 1801 headset-runtime Present(s) passed through
+[12:33:24.140][tid 19620] mxr diag: headset frames 2401, with layers 2401 (last 1), shouldRender 1; game copies 0, game busy 0; headset pulls 0, headset busy 0; open fails 0 (last hr 0x00000000); serial L 0/0 R 0/0 (game/seen); have L0 R0; swapchain image timeouts 0; TEST PATTERN
+[12:33:24.207][tid 19620] present_hook: 2401 headset-runtime Present(s) passed through
