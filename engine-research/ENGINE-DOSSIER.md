@@ -161,3 +161,31 @@ more: correct order). The first-person gun is drawn in the same space, so it sho
 Controls: numpad 5 on/off, numpad 8 mode (alternate / left only / right only); `metro_eye.ini` next to the exe.
 Installed with `enabled=0`. TAA was on and did not visibly smear the two eyes in the grabs (not examined closely).
 Units: 0.032 assumed metres (near 0.1 fits) `[hypothesis]`.
+
+## 2026-10-07 (`/lm`, dev PC): the HEADSET BRIDGE runs; the game picture cannot be shared yet
+
+Folded from inbox `2026-10-07-pd-headset-bridge-port.md` (the reader's port) plus this session's live runs.
+Evidence: `dev-archive/recon/2026-10-07-headset-bridge-first-run/`.
+
+**The port** `[compile-verified 2026-10-07]`: staging `headset-bridge-2026-10-07`, The Evil Within's OpenXR bridge
+(`cd9efc2`: own D3D11 device + session on a headset thread, a shared texture per eye, game-swapchain filter) added to
+`metro_eye.dll`; head tracking not ported. Off unless `metro_eye.ini [xr] openxr=1`. Present/Present1 hooked through a
+throwaway swapchain. Eye pairing: each scene render (`0xd859f0`) queues its side, each game Present takes the oldest
+`[hypothesis: holds only if every scene render is presented exactly once; untested because no game picture flows]`.
+
+**Live** `[verified-live 2026-10-07, n=1 each]`:
+- Game swapchain (main menu, window not resized): 1920x1061, `DXGI_FORMAT_R8G8B8A8_UNORM` (28), 3 buffers, flip
+  discard (4), no MSAA, device creation flags 0, feature level 11_1. Present runs on the render thread.
+- **Never call a window function that sends a message from the render thread**: `GetWindowTextA` on the game window
+  deadlocked it against the main thread (main waits on exe lock `+0x2113630`, owned by the render thread).
+  `InternalGetWindowText` is safe.
+- The OpenXR simulator shows only projection layers: use `layers=projection` there. With it the red/blue test
+  pattern runs at 60 fps beside the game.
+- **The device rejects every texture with `MISC_SHARED_KEYEDMUTEX`** (`E_INVALIDARG`) and accepts `MISC_SHARED` and
+  `MISC_SHARED | MISC_SHARED_NTHANDLE`. So TEW's keyed-mutex handover cannot be used on Metro as is. Options, untried:
+  (a) create the keyed-mutex textures on the headset device and only OPEN them on the game device; (b) plain shared
+  textures with a GPU event query and two textures per eye taking turns, no keyed mutex; (c) a CPU copy (slow, but
+  enough to see a picture).
+- OBS records both windows (game + simulator) into separate files (`claude-memory/tools/obs-rec.py --also`).
+- While a test runs, `steam://run/412020` started DX11 even though the Steam launch options read empty here
+  `[measured 2026-10-07]` (`present_hook` got an ID3D11Device); D3D12Core.dll is also loaded in the process.
