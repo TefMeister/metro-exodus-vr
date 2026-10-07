@@ -26,3 +26,9 @@ distributed in this repository.
 - Mixed News, "VR mod brings DLSS Ray Reconstruction to four AAA games" (on Luke Ross's R.E.A.L. VR) —
   https://mixed-news.com/en/real-vr-mod-dlss-ray-reconstruction/, and Road to VR (2026-03-11) —
   https://roadtovr.com/luke-ross-vr-mods-free-cyberpunk-2077/
+
+**Added 2026-10-07 (`/gr`):**
+
+- **praydog**, REFramework (MIT), D3D11 OpenXR binding: https://github.com/praydog/REFramework
+- **Dawn** (Chromium), D3D11on12Util.cpp: https://dawn.googlesource.com/dawn/
+- **Microsoft**, D3D11_RESOURCE_MISC_FLAG reference: https://msdn.microsoft.com/de-de/library/ff476203(v=vs.85)

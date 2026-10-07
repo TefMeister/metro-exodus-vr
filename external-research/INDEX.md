@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** Inbox empty; board `OPEN` rows read: one search for `-build_key` found no public mention. Nothing new.
+**Last `/gr` pass: 2026-10-07 (estate sweep) — CHECK-IN.** Inbox empty. For the keyed-mutex wall: REFramework binds OpenXR to the game's own D3D11 device and needs no shared texture (option d), plus a one-line check for an 11on12 device; topic filed, pointer sent, and the idea handed to Bulletstorm.
+
+_Previous: **Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** Inbox empty; board `OPEN` rows read: one search for `-build_key` found no public mention. Nothing new._
 
 _Previous: **Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Inbox empty; one search for the `-vr_profile` / `vr_*` names found no public mention (vorpX threads only). Nothing new._
 
@@ -18,5 +20,6 @@ write-up in `topics/`. Status tags:
 
 | Date | Topic | Status | Why it matters |
 | --- | --- | --- | --- |
+| 2026-10-07 | [Skip the shared texture: give the headset runtime the game's own D3D11 device](topics/2026-10-07-skip-the-shared-texture-bind-the-headset-to-the-game-device.md) | 🆕 | A fourth option for the keyed-mutex wall, used by REFramework, plus a one-line 11on12 check |
 | 2026-09-17 | [The console opens through a memory patch, settings live in `user.cfg`, and 4A's own editor is public](topics/2026-09-17-console-user-cfg-and-exodus-sdk.md) | 🆕 | Answers "how the console opens" (F1, after a public memory patch), names `r_base_fov`, and points at the official SDK docs |
 | 2026-09-17 | [4A's VR history, and what vorpX reaches on the Enhanced Edition](topics/2026-09-17-arktika-vr-history-and-vorpx-on-the-enhanced-edition.md) | 🆕 | Nobody in public has used the leftover VR code; Direct3D 12 limits vorpX to depth-based 3D |
