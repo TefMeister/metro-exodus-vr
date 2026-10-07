@@ -1,0 +1,25 @@
+metro_eye: exe base 00007FF7D6B00000, state block at 00007FFC29F39008 (magic MEYE0001)
+settings: enabled 1 mode 1 half_ipd 0.0320; numpad5 toggles, numpad8 cycles mode
+hook on scene render (RVA 0xd859f0): MH_OK
+frame 1 side -1: V[3][0] 51.15193 -> 51.18393; VP[3][0] 59.05836 -> 59.09531; V[3][3]=1.000
+frame 2 side -1: V[3][0] 73.09726 -> 73.12926; VP[3][0] 84.40556 -> 84.44250; V[3][3]=1.000
+frame 3 side -1: V[3][0] 52.22322 -> 52.25522; VP[3][0] 49.99151 -> 50.02214; V[3][3]=1.000
+frame 4 side -1: V[3][0] 0.72331 -> 0.75531; VP[3][0] 0.68278 -> 0.71341; V[3][3]=1.000
+frame 5 side -1: V[3][0] -51.20195 -> -51.16994; VP[3][0] -49.00056 -> -48.96992; V[3][3]=1.000
+frame 6 side -1: V[3][0] -73.13361 -> -73.10161; VP[3][0] -69.99908 -> -69.96846; V[3][3]=1.000
+frame 600 side -1 half_ipd 0.0320 mode 1
+frame 1200 side -1 half_ipd 0.0320 mode 1
+frame 1800 side -1 half_ipd 0.0320 mode 1
+frame 2400 side -1 half_ipd 0.0320 mode 1
+frame 3000 side -1 half_ipd 0.0320 mode 1
+frame 3600 side -1 half_ipd 0.0320 mode 1
+frame 4200 side -1 half_ipd 0.0320 mode 1
+mode -> 2
+mode -> 0
+frame 4800 side +1 half_ipd 0.0320 mode 0
+frame 5400 side +1 half_ipd 0.0320 mode 0
+frame 6000 side +1 half_ipd 0.0320 mode 0
+frame 6600 side +1 half_ipd 0.0320 mode 0
+frame 7200 side +1 half_ipd 0.0320 mode 0
+frame 7800 side +1 half_ipd 0.0320 mode 0
+toggle -> enabled 0

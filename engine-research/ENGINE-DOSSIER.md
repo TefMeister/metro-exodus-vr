@@ -136,3 +136,28 @@ Full helper notes (folded from inbox, kept whole): `dev-archive/recon/2026-10-06
 - **2026-10-07: DirectX 11 confirmed.** Tefa put `-force_rapi 2` in the game's Steam launch options; started with
   `steam://run/412020` the process command line carries it and `NvHairWorksDx11.win64.dll` loads (no Dx12 one)
   `[verified-live 2026-10-07, n=1]`. Window resized to 1280×720 the same way.
+
+## 2026-10-07 (`/lm`, dev PC, DirectX 11): the camera read live, and TWO EYES ALTERNATE
+
+**Camera read live** `[verified-live 2026-10-07, n=1]` (`dev-archive/recon/2026-10-07-camera-read-live/`): 16 floats at
+RVA `0x2111640` (view), `0x2111680` (projection), `0x21116c0` (view×projection), read-only with ReadProcessMemory.
+Row-vector layout (v × M), translation in the bottom row; the 3×3 is orthonormal; a small mouse turn right moved the
+forward axis ~8°. Projection in play: `sy = 1.7321` (60° vertical), `sx = sy·720/1280`, clip w = view z, clip z = 0.1
+→ **reversed-Z with near 0.1** (far infinite or very far); row 2 carries the TAA jitter each frame.
+Static detail (reader, folded from inbox, file kept in that folder) `[inferred-static 2026-10-07]`: camera object at
+`0x2111600` (+0x00 position, +0x10 forward, +0x40 V, +0x80 P, +0xC0 VP, +0x100 double V, +0x180 double VP, +0x4b4
+fov, +0x4b8 aspect); `r_base_fov` is the vertical fov in degrees; inverse matrices are computed inside the renderer,
+not stored; no previous-frame VP found. GPU path: command stream at `0x16c0c40` (0x19 set view, 0x1A set projection)
+→ DX11 renderer table `0x14e3cd0` → `0x256910` / `0x256ea0` write them transposed into a CPU copy of the shader
+constants (`m_V m_P m_VP m_iV m_iP m_iVP m_W m_WV m_WVP m_iW`). Shaders are compressed inside the `.vfs` archives.
+
+**Two eyes** `[verified-live 2026-10-07, n=1]` (`dev-archive/recon/2026-10-07-two-eyes-first-run/`): the reader's
+`metro_eye.dll` (staging `eye-hook-2026-10-06`, `8d0251bd3b48`), loaded by an edited `dxgi.dll` proxy
+(`76d0c7688b4c`, 19/19 exports), hooks the scene render `0xd859f0`; each frame it moves the camera half an eye
+(`half_ipd`, default 0.032) along its right axis, also the double view copy, rebuilds view×projection (culling
+matches), draws, then takes back its own shift. Signature-checked before hooking. Live: 24 grabs ~11 ms apart in
+alternate mode split into two groups every other frame, far scenery 2 px apart, the gun 3–4 px (near separates
+more: correct order). The first-person gun is drawn in the same space, so it shows parallax too.
+Controls: numpad 5 on/off, numpad 8 mode (alternate / left only / right only); `metro_eye.ini` next to the exe.
+Installed with `enabled=0`. TAA was on and did not visibly smear the two eyes in the grabs (not examined closely).
+Units: 0.032 assumed metres (near 0.1 fits) `[hypothesis]`.
