@@ -189,3 +189,24 @@ throwaway swapchain. Eye pairing: each scene render (`0xd859f0`) queues its side
 - OBS records both windows (game + simulator) into separate files (`claude-memory/tools/obs-rec.py --also`).
 - While a test runs, `steam://run/412020` started DX11 even though the Steam launch options read empty here
   `[measured 2026-10-07]` (`present_hook` got an ID3D11Device); D3D12Core.dll is also loaded in the process.
+
+## 2026-10-08 (`/pd`, dev PC, no launch) - the picture handover rebuilt without the game's keyed mutex
+
+**Built** `[compile-verified 2026-10-08]`: staging `headset-bridge-2026-10-07` `2837913`, `metro_eye.dll`
+`12adf66a6074`, installed on the dev PC as builds `Headset output/v0.1.0-b004` with `test_pattern=0`, `share=auto`.
+Not run. Two ways, chosen at run time (`[xr] share=auto|ring`), each logging where it fails:
+- **LOCK** (options (a) above): the keyed-mutex textures are made on the HEADSET device and only opened on the game's.
+  Log `mxr lock: WORKS ...` or `mxr share: LOCK failed at <step> (hr ...) - switching to RING`.
+- **RING** (option (b)): three plain shared textures per eye on the game's device (NT handle first, then the older
+  handle), a GPU event query per copy, published only once the query reports done; the headset claims the newest
+  published picture and the game never writes that one or the one being read (`src/mxr_ring.c`). The protocol held
+  under two real threads: ~90,000 reads, 0 torn, 0 out of order, and a deliberately broken writer tore ~73,000
+  `[verified-numerically 2026-10-08, n=2 runs]` (`tests/ring_test.c`). Whether a finished event query is enough for
+  the OTHER device to read the texture whole is `[hypothesis]`; a torn picture in the simulator would disprove it.
+- Option (c), the CPU copy, is not built: RING uses only texture kinds the device accepted on 2026-10-07.
+- **Option (d)** (`/gr` 2026-10-07, folded from the inbox): skip sharing altogether, create the OpenXR session on the
+  game's own `ID3D11Device` and `CopyResource` the back buffer into the swapchain image on the game's context, as
+  REFramework's D3D11 path does `[inferred-static 2026-10-07]`. Costs: the game may be paced by the headset, and
+  OpenXR calls would run on the render thread. Kept as the next option if both LOCK and RING fail.
+- **The 11on12 question** (`/gr` 2026-10-07): the first frame now logs `mxr share: game device ...:
+  ID3D11On12Device YES/no`. A YES would explain the keyed-mutex refusal `[hypothesis]`.
