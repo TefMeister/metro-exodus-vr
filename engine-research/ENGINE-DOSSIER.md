@@ -210,3 +210,12 @@ Not run. Two ways, chosen at run time (`[xr] share=auto|ring`), each logging whe
   OpenXR calls would run on the render thread. Kept as the next option if both LOCK and RING fail.
 - **The 11on12 question** (`/gr` 2026-10-07): the first frame now logs `mxr share: game device ...:
   ID3D11On12Device YES/no`. A YES would explain the keyed-mutex refusal `[hypothesis]`.
+
+## 2026-10-12 (`/pd`, dev PC, no launch): head tracking built
+- `metro_eye.ini [xr] head_tracking=1` (needs `layers=projection`): the head pose turns Metro's own view
+  (`V' = V * M`, mirrored through z because the view is z forward and OpenXR z back), then the eye shift along the head's
+  right; the double view copy (RVA `0x2111700`) turns with it. Recentre on the first pose (heading only), numpad 2.
+  After each render the view is restored from saved copies, so no pile-up is possible. Each picture carries its pose
+  and the game's lens to its projection layer. 20,014 checks against an independent quaternion route
+  `[verified-numerically 2026-10-12]`; not run in the game. `metro_eye.dll` `b15ec24f31af` installed, off by default.
+  Note: `modding-notes/2026-10-12-pd-head-tracking-built.md`.
