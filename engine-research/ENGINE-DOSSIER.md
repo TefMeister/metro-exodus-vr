@@ -248,3 +248,17 @@ Not run. Two ways, chosen at run time (`[xr] share=auto|ring`), each logging whe
 - `user.cfg` had `r_fullscreen on` again (cause unknown); run 1 came up borderless full-screen even after setting it
   off, run 2 as a captioned window `[verified-live 2026-10-15, n=1 each]`.
 - Note: `modding-notes/2026-10-15-lm-metro-picture-and-head-in-the-simulator.md`.
+
+## 2026-10-15 (`/pd`, dev PC, no launch): the game's lens on every eye view
+
+- Gameplay projection 0.9571 / 1.7321 = 1.810 = the BACK BUFFER's shape (1920x1061), not the resized 1280x720 window:
+  Metro builds its lens from the back buffer, which is also the picture the headset receives `[verified-numerically 2026-10-15]`
+  (from the 2026-10-07 live read). 30 deg up/down, 46.25 deg left/right.
+- The OpenXR simulator's preview copies each eye image into its window and ignores the layer `fov`, so "stretched" in
+  the simulator says nothing about the shape `[inferred-static 2026-10-15]` (its README); `get_projection_log` shows
+  the submitted angles.
+- b007 (`metro_eye.dll` `ced3151c7670`, installed): every projection view carries the game's lens, head tracking or
+  not; the log names both lenses once `[compile-verified 2026-10-15]`. In a real headset the picture should keep its
+  shape and leave the rest of the taller eye dark `[hypothesis]`. Filling the eye needs the game drawn with the
+  headset's lens (projection at RVA 0x2111680), not done.
+- Note: `modding-notes/2026-10-15-pd-the-picture-keeps-its-shape.md`.
