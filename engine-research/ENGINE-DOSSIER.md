@@ -219,3 +219,21 @@ Not run. Two ways, chosen at run time (`[xr] share=auto|ring`), each logging whe
   and the game's lens to its projection layer. 20,014 checks against an independent quaternion route
   `[verified-numerically 2026-10-12]`; not run in the game. `metro_eye.dll` `b15ec24f31af` installed, off by default.
   Note: `modding-notes/2026-10-12-pd-head-tracking-built.md`.
+
+## 2026-10-15 (`/lm`, dev PC, simulator): RING carries Metro's picture; head tracking turns the right way
+- **LOCK fails at the OPEN** on the game's device (`hr 0x80070057`), so that device refuses keyed-mutex textures
+  outright; **RING works** (copies and pulls climb together, `slow 0`, `open fails 0`) and Metro's own picture shows
+  in both eyes of the simulator, near things offset between the eyes `[verified-live 2026-10-15, n=2 runs]`. No torn
+  frame in three captures while turning `[verified-live 2026-10-15, n=3 captures]`.
+- **Not 11on12**: `ID3D11On12Device no (hr 0x80004002)`, `ID3D11Device1 yes`, feature level 11_1, flags 0
+  `[verified-live 2026-10-15, n=2]`. The 11on12 explanation of the keyed-mutex refusal is ruled out.
+- **Head tracking**: yaw 30 deg left in the simulator turns the view left; back to 0 returns it, no drift; no
+  `NOTE:` line, so the game does not rebuild the view mid-render `[verified-live 2026-10-15, n=1]`.
+  **Bug:** the recentre keeps only the heading, so the head's standing height (1.70 m) lifts the camera 1.7 units into
+  the ceiling; head at y = 0 is normal `[verified-live 2026-10-15, n=1]`. Fix: recentre the position too.
+- **Focus**: Metro minimises and pauses as soon as it loses focus, even as a 1280x720 window, and stops presenting
+  while minimised `[verified-live 2026-10-15, n=2]`. An OBS crash (Source Record, the second recording) at the same
+  second most likely took the focus `[hypothesis]`.
+- `user.cfg` had `r_fullscreen on` again (cause unknown); run 1 came up borderless full-screen even after setting it
+  off, run 2 as a captioned window `[verified-live 2026-10-15, n=1 each]`.
+- Note: `modding-notes/2026-10-15-lm-metro-picture-and-head-in-the-simulator.md`.
