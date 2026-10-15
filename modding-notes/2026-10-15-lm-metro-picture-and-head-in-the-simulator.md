@@ -31,13 +31,20 @@ eye), DirectX 11. Two runs, the Moscow tunnel save. Evidence: `dev-archive/recon
 - **Turning is the right way round:** simulator head yaw 30 deg left, the tunnel opening that was ahead slid to the
   right of both eyes; back to 0, the view returned to the same picture and stayed `[verified-live 2026-10-15, n=1]`.
   No spin, no drift seen over about a minute.
-- **BUG: the head's height lifts the camera.** The recentre takes only the heading, not the position, so the
-  simulator's standing head (y = 1.70 m) lifted Metro's camera 1.7 units, into the tunnel ceiling: a washed-out wrong
-  view in the game window and the simulator. With the head at y = 0 the view is normal `[verified-live 2026-10-15,
-  n=1]`. Fix: the recentre also stores the head position and only the movement from it is applied. Sent to the
-  reader to build; see the board.
-- Open: with head tracking on, the gun was not in its usual place in the game window (head at y = 0, yaw 0)
-  `[verified-live 2026-10-15, n=1, unexplained]`. Look again after the height fix.
+- **The washed-out view was the camera lifted high, and the simulator lifted it.** The OpenXR simulator moves its
+  head UP while **E** is held, even with the game window in front: holding E 2 s took the head from 1.77 m to
+  5.77 m, and the loading screen's "HOLD E" had already taken it to 11.4 m `[verified-live 2026-10-15, n=2]`. With
+  the head set back to standing height the view is normal, with head tracking on and the gun in its place
+  `[verified-live 2026-10-15, n=1]`. The simulator's controls also list WASD as head movement, so walking with WASD
+  in a simulator test will move the head too `[reported]` (its own help text).
+- First I read it as our bug (the recentre keeping only the heading) and sent the reader to fix it. The reader found
+  b005 already subtracts the place, but takes it from the first pose even if that pose has no valid position (then
+  0 0 0, which lifts by the full standing height) `[inferred-static 2026-10-15]`; whether b005 hit that live is
+  `[hypothesis]`. Build **b006** (`metro_eye.dll` `2e8cf7e10db7`, staging `1493c8e`) takes the place only from a
+  pose with a valid position and logs it: live `head place 0.00 1.77 0.00 m` `[verified-live 2026-10-15, n=1]`;
+  9 new checks, 20,023 pass, the old code fails 6 `[verified-numerically 2026-10-15]`.
+- Run 3 (b006): yaw 30 deg left turns the view, back to 0 returns to the same picture `[verified-live 2026-10-15,
+  n=2 runs]`. b006 is installed with `head_tracking=1`.
 - The main menu is a 3D scene, so head tracking moves its camera too.
 
 ## 3. Window and focus
@@ -58,6 +65,19 @@ eye), DirectX 11. Two runs, the Moscow tunnel save. Evidence: `dev-archive/recon
 - HOLD E after a chapter loads: 3 s worked in run 1; in run 2 it needed a second, longer hold (4.5 s).
 - The simulator's preview window can start squashed (584x21): resize it, or its screenshots are useless.
 
+## 5. From the reader (static, nothing deployed)
+
+- **A third handover way, `share=cpu`** (the CPU copy, option (c)), in `staging/metro-exodus-vr/share-cpu-2026-10-15/`
+  (`cd22e64`, dll `df777c76fe9f`, includes b006's head fix). `share=auto` now goes LOCK -> RING -> CPU. Option (d)
+  (the session on the game's device) was set aside: it froze The Evil Within twice on this simulator.
+- A two-device test on this PC's card (1,500 numbered frames, a resize mid-run): LOCK, RING and CPU each delivered
+  about 1,490 pictures, 0 torn, 0 wrong eye; lag about 1.0 / 1.6 / 2.6 frames `[verified-numerically 2026-10-15,
+  n=2]`. LOCK works on an ordinary device, so the refusal is Metro's device's own.
+- Plan if RING ever tears: check `slow`; then try `share=cpu`; then a shared fence instead of the event query; then
+  TAA off (alternate-frame eyes share TAA history `[hypothesis]`).
+- One reader claim did not match the live log (copies "stuck at 8479 from 15:52:39" in run 1; the log shows them
+  climbing to 13,240 at 15:55:16), so it is not used.
+
 ## Not established
 
-- Whether the picture tears in a real headset; latency; the gun with head tracking; head position with the fix.
+- Whether the picture tears in a real headset; latency; head position (moving, not only turning) in the game.

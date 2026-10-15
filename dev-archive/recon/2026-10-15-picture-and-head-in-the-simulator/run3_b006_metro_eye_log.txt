@@ -1,0 +1,167 @@
+[16:21:06.967][tid 5420] metro_eye (headset-bridge 2026-10-07): exe base 00007FF717480000, state block at 00007FFB81756000 (magic MEYE0001)
+[16:21:06.967][tid 5420] settings: enabled 1 mode 0 half_ipd 0.0320; numpad5 toggles, numpad8 cycles mode, numpad2 recentres the head
+[16:21:06.968][tid 5420] mxr share: LOCK first (keyed mutex made on the headset device), RING if that fails
+[16:21:06.968][tid 5420] mxr: ON - headset thread started (own device); eyes as per-eye projection views; swap_eyes 0, eye_source fifo; head tracking ON (turning + moving)
+[16:21:06.969][tid 15052] mxr: runtime for this game only: D:\claude video game stuff\tools\OpenXR-Simulator\openxr_simulator.json
+[16:21:07.736][tid 5420] present_hook: Present at 00007FFBD55918C0: MH_OK
+[16:21:07.787][tid 5420] present_hook: Present1 at 00007FFBD55FABF0: MH_OK
+[16:21:07.919][tid 15052] mxr: waiting for the game's first frame before starting the session
+[16:21:08.114][tid 5420] camera: hook on scene render (RVA 0xd859f0): MH_OK
+[16:21:10.016][tid 12464] present_hook: game swapchain 00000110DE7A9B00, 1920x1061 format 28, 3 buffer(s), swap effect 4, samples 1, window 00000000001B0894 "4A Engine" class "_uengine_"; device flags 0x0; only it runs per-frame work
+[16:21:10.016][tid 12464] present_hook: 1 game Present(s)
+[16:21:10.016][tid 12464] present 1: eye BOTH, scene renders waiting 0, dropped 0, empty 1; render thread 0, present thread 12464
+[16:21:10.026][tid 15052] mxr: session created on the headset thread's own device; waiting for the runtime to start it
+[16:21:10.056][tid 15052] mxr: session running
+[16:21:10.057][tid 15052] mxr head: first head pose published (heading 0.0 deg, position 0.00 1.70 0.00 m)
+[16:21:10.057][tid 15052] present_hook: 1 headset-runtime Present(s) passed through
+[16:21:10.103][tid 12464] present 2: eye BOTH, scene renders waiting 0, dropped 0, empty 2; render thread 0, present thread 12464
+[16:21:10.103][tid 12464] mxr share: game device 00000110CC8E0818: ID3D11On12Device no (hr 0x80004002), ID3D11Device1 yes, feature level 0xb100, creation flags 0x0
+[16:21:10.123][tid 15052] mxr lock: headset device made two 1920x1061 keyed-mutex textures (format 28); offered to the game
+[16:21:10.127][tid 15052] mxr: two 1920x1061 eye swapchains, format 29
+[16:21:10.129][tid 15052] mxr: screen placed at head height 1.70 m
+[16:21:10.131][tid 12464] present 3: eye BOTH, scene renders waiting 0, dropped 0, empty 3; render thread 0, present thread 12464
+[16:21:10.131][tid 12464] mxr lock: game device opens eye 0 (handle 00000000000013BC) -> hr 0x80070057
+[16:21:10.131][tid 12464] mxr share: LOCK failed at the game device opening the headset's keyed-mutex texture (hr 0x80070057) - switching to RING for the rest of this run
+[16:21:10.138][tid 15052] mxr diag: headset frames 1, with layers 0 (last 0), shouldRender 1; share RING; game copies 0, game busy 0; headset pulls 0, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 0/0 R 0/0 (game/seen); have L0 R0; swapchain image timeouts 0; head poses 2, eye views with the drawn pose 0
+[16:21:10.138][tid 15052] mxr share: headset side switching to RING
+[16:21:10.160][tid 12464] present 4: eye BOTH, scene renders waiting 0, dropped 0, empty 4; render thread 0, present thread 12464
+[16:21:10.162][tid 12464] mxr ring: sharing 1920x1061 eye images (format 28), 3 per eye, NT handles
+[16:21:10.164][tid 15052] mxr ring: WORKS on the headset side - opened 6 eye textures (1920x1061)
+[16:21:10.166][tid 15052] mxr: two 1920x1061 eye swapchains, format 29
+[16:21:10.187][tid 12464] present 5: eye BOTH, scene renders waiting 0, dropped 0, empty 5; render thread 0, present thread 12464
+[16:21:10.215][tid 12464] present 6: eye BOTH, scene renders waiting 0, dropped 0, empty 6; render thread 0, present thread 12464
+[16:21:10.224][tid 15052] mxr: 1 headset frames submitted
+[16:21:10.255][tid 12464] present 7: eye BOTH, scene renders waiting 0, dropped 0, empty 7; render thread 0, present thread 12464
+[16:21:10.278][tid 12464] present 8: eye BOTH, scene renders waiting 0, dropped 0, empty 8; render thread 0, present thread 12464
+[16:21:10.315][tid 12464] present 9: eye BOTH, scene renders waiting 0, dropped 0, empty 9; render thread 0, present thread 12464
+[16:21:10.346][tid 12464] present 10: eye BOTH, scene renders waiting 0, dropped 0, empty 10; render thread 0, present thread 12464
+[16:21:10.377][tid 12464] present 11: eye BOTH, scene renders waiting 0, dropped 0, empty 11; render thread 0, present thread 12464
+[16:21:10.411][tid 12464] present 12: eye BOTH, scene renders waiting 0, dropped 0, empty 12; render thread 0, present thread 12464
+[16:21:19.979][tid 15052] mxr diag: headset frames 601, with layers 598 (last 1), shouldRender 1; share RING; game copies 588, game busy 0; headset pulls 584, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 293/292 R 293/292 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 606, eye views with the drawn pose 0
+[16:21:20.162][tid 15052] present_hook: 601 headset-runtime Present(s) passed through
+[16:21:25.029][tid 15052] mxr: 901 headset frames submitted
+[16:21:29.979][tid 15052] mxr diag: headset frames 1201, with layers 1198 (last 1), shouldRender 1; share RING; game copies 1112, game busy 0; headset pulls 1110, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 555/555 R 555/555 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 1206, eye views with the drawn pose 0
+[16:21:30.164][tid 15052] present_hook: 1201 headset-runtime Present(s) passed through
+[16:21:31.316][tid 12464] present 600: eye BOTH, scene renders waiting 0, dropped 0, empty 600; render thread 0, present thread 12464
+[16:21:39.789][tid 15052] mxr diag: headset frames 1801, with layers 1798 (last 1), shouldRender 1; share RING; game copies 1702, game busy 0; headset pulls 1698, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 850/849 R 850/849 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 1806, eye views with the drawn pose 0
+[16:21:39.838][tid 15052] mxr: 1801 headset frames submitted
+[16:21:40.173][tid 15052] present_hook: 1801 headset-runtime Present(s) passed through
+[16:21:49.473][tid 15052] mxr diag: headset frames 2401, with layers 2398 (last 1), shouldRender 1; share RING; game copies 2282, game busy 0; headset pulls 2278, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 1140/1139 R 1140/1139 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 2406, eye views with the drawn pose 0
+[16:21:50.176][tid 15052] present_hook: 2401 headset-runtime Present(s) passed through
+[16:21:51.328][tid 12464] present 1200: eye BOTH, scene renders waiting 0, dropped 0, empty 1200; render thread 0, present thread 12464
+[16:21:54.090][tid 15052] mxr: 2701 headset frames submitted
+[16:21:57.128][tid 4812] head: RECENTRED - heading 0.0 deg is now the game's forward; head place 0.00 1.77 0.00 m (this pose: 0.00 1.77 0.00 m) - the camera moves only by the offset from that place
+[16:21:57.128][tid 4812] frame 1 side -1 head 1: V[3][0] 51.15193 -> 51.18393; VP[3][0] 59.07196 -> 59.10892; V[3][3]=1.000
+[16:21:57.153][tid 4812] frame 2 side +1 head 1: V[3][0] 73.09726 -> 73.06526; VP[3][0] 84.40536 -> 84.36841; V[3][3]=1.000
+[16:21:57.399][tid 4812] frame 3 side -1 head 1: V[3][0] 52.22322 -> 52.25522; VP[3][0] 49.97819 -> 50.00882; V[3][3]=1.000
+[16:21:57.408][tid 4812] frame 4 side +1 head 1: V[3][0] 0.72331 -> 0.69131; VP[3][0] 0.70183 -> 0.67120; V[3][3]=1.000
+[16:21:57.558][tid 4812] frame 5 side -1 head 1: V[3][0] -51.20195 -> -51.16994; VP[3][0] -49.01416 -> -48.98353; V[3][3]=1.000
+[16:21:57.575][tid 4812] frame 6 side +1 head 1: V[3][0] -73.13361 -> -73.16560; VP[3][0] -69.99889 -> -70.02953; V[3][3]=1.000
+[16:21:58.743][tid 15052] mxr diag: headset frames 3001, with layers 2998 (last 1), shouldRender 1; share RING; game copies 2810, game busy 0; headset pulls 2808, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 1405/1404 R 1404/1404 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 3006, eye views with the drawn pose 181
+[16:22:00.202][tid 15052] present_hook: 3001 headset-runtime Present(s) passed through
+[16:22:04.725][tid 4812] present 1800: eye RIGHT, scene renders waiting 1, dropped 0, empty 1374; render thread 4812, present thread 12464
+[16:22:07.660][tid 4812] frame 600 side +1 half_ipd 0.0320 mode 0; head frames 600, view changed by the game during the render 0 time(s)
+[16:22:08.435][tid 15052] mxr diag: headset frames 3601, with layers 3598 (last 1), shouldRender 1; share RING; game copies 3386, game busy 0; headset pulls 3383, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 1692/1692 R 1692/1691 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 3606, eye views with the drawn pose 1381
+[16:22:08.485][tid 15052] mxr: 3601 headset frames submitted
+[16:22:10.236][tid 15052] present_hook: 3601 headset-runtime Present(s) passed through
+[16:22:14.789][tid 4812] present 2400: eye RIGHT, scene renders waiting 1, dropped 0, empty 1374; render thread 4812, present thread 12464
+[16:22:17.694][tid 4812] frame 1200 side +1 half_ipd 0.0320 mode 0; head frames 1200, view changed by the game during the render 0 time(s)
+[16:22:18.327][tid 15052] mxr diag: headset frames 4201, with layers 4198 (last 1), shouldRender 1; share RING; game copies 3979, game busy 0; headset pulls 3977, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 1989/1989 R 1989/1988 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 4206, eye views with the drawn pose 2581
+[16:22:20.245][tid 15052] present_hook: 4201 headset-runtime Present(s) passed through
+[16:22:23.378][tid 15052] mxr: 4501 headset frames submitted
+[16:22:25.008][tid 4812] present 3000: eye BOTH, scene renders waiting 0, dropped 0, empty 1533; render thread 4812, present thread 12464
+[16:22:28.315][tid 15052] mxr diag: headset frames 4801, with layers 4798 (last 1), shouldRender 1; share RING; game copies 4921, game busy 0; headset pulls 4917, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 2460/2459 R 2459/2458 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 4806, eye views with the drawn pose 3051
+[16:22:30.269][tid 15052] present_hook: 4801 headset-runtime Present(s) passed through
+[16:22:35.065][tid 4812] present 3600: eye BOTH, scene renders waiting 0, dropped 0, empty 2133; render thread 4812, present thread 12464
+[16:22:35.081][tid 4812] present_hook: 3601 game Present(s)
+[16:22:38.215][tid 15052] mxr diag: headset frames 5401, with layers 5398 (last 1), shouldRender 1; share RING; game copies 6091, game busy 0; headset pulls 6086, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 3045/3044 R 3044/3043 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 5406, eye views with the drawn pose 3051
+[16:22:38.265][tid 15052] mxr: 5401 headset frames submitted
+[16:22:40.367][tid 15052] present_hook: 5401 headset-runtime Present(s) passed through
+[16:22:45.256][tid 4812] present 4200: eye BOTH, scene renders waiting 0, dropped 0, empty 2733; render thread 4812, present thread 12464
+[16:22:48.211][tid 15052] mxr diag: headset frames 6001, with layers 5998 (last 1), shouldRender 1; share RING; game copies 7275, game busy 0; headset pulls 7269, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 3637/3636 R 3636/3635 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 6006, eye views with the drawn pose 3051
+[16:22:50.503][tid 15052] present_hook: 6001 headset-runtime Present(s) passed through
+[16:22:53.134][tid 15052] mxr: 6301 headset frames submitted
+[16:22:56.558][tid 4812] present 4800: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:22:57.985][tid 15052] mxr diag: headset frames 6601, with layers 6598 (last 1), shouldRender 1; share RING; game copies 8192, game busy 0; headset pulls 8187, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 4095/4095 R 4095/4094 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 6606, eye views with the drawn pose 3305
+[16:23:00.504][tid 15052] present_hook: 6601 headset-runtime Present(s) passed through
+[16:23:02.572][tid 4812] frame 1800 side +1 half_ipd 0.0320 mode 0; head frames 1800, view changed by the game during the render 0 time(s)
+[16:23:07.420][tid 4812] present 5400: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:23:07.770][tid 15052] mxr diag: headset frames 7201, with layers 7198 (last 1), shouldRender 1; share RING; game copies 8726, game busy 0; headset pulls 8722, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 4362/4362 R 4362/4362 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 7206, eye views with the drawn pose 4505
+[16:23:07.820][tid 15052] mxr: 7201 headset frames submitted
+[16:23:10.560][tid 15052] present_hook: 7201 headset-runtime Present(s) passed through
+[16:23:12.678][tid 4812] frame 2400 side +1 half_ipd 0.0320 mode 0; head frames 2400, view changed by the game during the render 0 time(s)
+[16:23:17.472][tid 4812] present 6000: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:23:17.735][tid 15052] mxr diag: headset frames 7801, with layers 7798 (last 1), shouldRender 1; share RING; game copies 9322, game busy 0; headset pulls 9317, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 4661/4660 R 4660/4660 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 7806, eye views with the drawn pose 5705
+[16:23:20.578][tid 15052] present_hook: 7801 headset-runtime Present(s) passed through
+[16:23:22.421][tid 15052] mxr: 8101 headset frames submitted
+[16:23:22.762][tid 4812] frame 3000 side +1 half_ipd 0.0320 mode 0; head frames 3000, view changed by the game during the render 0 time(s)
+[16:23:27.302][tid 15052] mxr diag: headset frames 8401, with layers 8398 (last 1), shouldRender 1; share RING; game copies 9890, game busy 0; headset pulls 9885, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 4945/4944 R 4944/4944 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 8406, eye views with the drawn pose 6905
+[16:23:27.574][tid 4812] present 6600: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:23:30.654][tid 15052] present_hook: 8401 headset-runtime Present(s) passed through
+[16:23:32.822][tid 4812] frame 3600 side +1 half_ipd 0.0320 mode 0; head frames 3600, view changed by the game during the render 0 time(s)
+[16:23:37.028][tid 15052] mxr diag: headset frames 9001, with layers 8998 (last 1), shouldRender 1; share RING; game copies 10471, game busy 0; headset pulls 10464, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 5235/5235 R 5235/5234 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 9006, eye views with the drawn pose 8105
+[16:23:37.078][tid 15052] mxr: 9001 headset frames submitted
+[16:23:37.617][tid 4812] present 7200: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:23:37.633][tid 4812] present_hook: 7201 game Present(s)
+[16:23:40.677][tid 15052] present_hook: 9001 headset-runtime Present(s) passed through
+[16:23:42.906][tid 4812] frame 4200 side +1 half_ipd 0.0320 mode 0; head frames 4200, view changed by the game during the render 0 time(s)
+[16:23:46.463][tid 15052] mxr diag: headset frames 9601, with layers 9598 (last 1), shouldRender 1; share RING; game copies 11031, game busy 0; headset pulls 11024, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 5515/5515 R 5515/5514 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 9606, eye views with the drawn pose 9305
+[16:23:47.727][tid 4812] present 7800: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:23:50.716][tid 15052] mxr: 9901 headset frames submitted
+[16:23:50.839][tid 15052] present_hook: 9601 headset-runtime Present(s) passed through
+[16:23:52.981][tid 4812] frame 4800 side +1 half_ipd 0.0320 mode 0; head frames 4800, view changed by the game during the render 0 time(s)
+[16:23:54.825][tid 15052] mxr diag: headset frames 10201, with layers 10198 (last 1), shouldRender 1; share RING; game copies 11529, game busy 0; headset pulls 11521, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 5764/5763 R 5763/5763 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 10206, eye views with the drawn pose 10505
+[16:23:57.799][tid 4812] present 8400: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:24:00.954][tid 15052] present_hook: 10201 headset-runtime Present(s) passed through
+[16:24:03.044][tid 4812] frame 5400 side +1 half_ipd 0.0320 mode 0; head frames 5400, view changed by the game during the render 0 time(s)
+[16:24:03.631][tid 15052] mxr diag: headset frames 10801, with layers 10798 (last 1), shouldRender 1; share RING; game copies 12054, game busy 0; headset pulls 12047, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 6027/6027 R 6026/6026 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 10806, eye views with the drawn pose 11705
+[16:24:03.681][tid 15052] mxr: 10801 headset frames submitted
+[16:24:07.913][tid 4812] present 9000: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:24:11.068][tid 15052] present_hook: 10801 headset-runtime Present(s) passed through
+[16:24:12.155][tid 15052] mxr diag: headset frames 11401, with layers 11398 (last 1), shouldRender 1; share RING; game copies 12558, game busy 0; headset pulls 12550, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 6278/6278 R 6278/6278 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 11406, eye views with the drawn pose 12905
+[16:24:13.178][tid 4812] frame 6000 side +1 half_ipd 0.0320 mode 0; head frames 6000, view changed by the game during the render 0 time(s)
+[16:24:16.757][tid 15052] mxr: 11701 headset frames submitted
+[16:24:18.015][tid 4812] present 9600: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:24:21.163][tid 15052] present_hook: 11401 headset-runtime Present(s) passed through
+[16:24:21.207][tid 15052] mxr diag: headset frames 12001, with layers 11998 (last 1), shouldRender 1; share RING; game copies 13096, game busy 0; headset pulls 13087, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 6548/6548 R 6547/6547 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 12006, eye views with the drawn pose 14105
+[16:24:23.273][tid 4812] frame 6600 side +1 half_ipd 0.0320 mode 0; head frames 6600, view changed by the game during the render 0 time(s)
+[16:24:28.120][tid 4812] present 10200: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:24:29.817][tid 15052] mxr diag: headset frames 12601, with layers 12598 (last 1), shouldRender 1; share RING; game copies 13606, game busy 0; headset pulls 13593, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 6802/6802 R 6802/6802 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 12606, eye views with the drawn pose 15305
+[16:24:29.867][tid 15052] mxr: 12601 headset frames submitted
+[16:24:31.315][tid 15052] present_hook: 12001 headset-runtime Present(s) passed through
+[16:24:33.390][tid 4812] frame 7200 side +1 half_ipd 0.0320 mode 0; head frames 7200, view changed by the game during the render 0 time(s)
+[16:24:38.214][tid 4812] present 10800: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:24:38.231][tid 4812] present_hook: 10801 game Present(s)
+[16:24:38.712][tid 15052] mxr diag: headset frames 13201, with layers 13198 (last 1), shouldRender 1; share RING; game copies 14136, game busy 0; headset pulls 14122, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 7067/7067 R 7067/7066 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 13206, eye views with the drawn pose 16505
+[16:24:41.422][tid 15052] present_hook: 12601 headset-runtime Present(s) passed through
+[16:24:43.247][tid 15052] mxr: 13501 headset frames submitted
+[16:24:43.503][tid 4812] frame 7800 side +1 half_ipd 0.0320 mode 0; head frames 7800, view changed by the game during the render 0 time(s)
+[16:24:47.303][tid 15052] mxr diag: headset frames 13801, with layers 13798 (last 1), shouldRender 1; share RING; game copies 14646, game busy 0; headset pulls 14634, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 7323/7323 R 7322/7322 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 13806, eye views with the drawn pose 17705
+[16:24:48.333][tid 4812] present 11400: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:24:51.480][tid 15052] present_hook: 13201 headset-runtime Present(s) passed through
+[16:24:53.576][tid 4812] frame 8400 side +1 half_ipd 0.0320 mode 0; head frames 8400, view changed by the game during the render 0 time(s)
+[16:24:55.856][tid 15052] mxr diag: headset frames 14401, with layers 14398 (last 1), shouldRender 1; share RING; game copies 15153, game busy 0; headset pulls 15140, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 7576/7576 R 7576/7576 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 14406, eye views with the drawn pose 18905
+[16:24:55.873][tid 15052] mxr: 14401 headset frames submitted
+[16:24:58.434][tid 4812] present 12000: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:25:01.574][tid 15052] present_hook: 13801 headset-runtime Present(s) passed through
+[16:25:03.684][tid 4812] frame 9000 side +1 half_ipd 0.0320 mode 0; head frames 9000, view changed by the game during the render 0 time(s)
+[16:25:04.332][tid 15052] mxr diag: headset frames 15001, with layers 14998 (last 1), shouldRender 1; share RING; game copies 15657, game busy 0; headset pulls 15644, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 7828/7828 R 7828/7828 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 15006, eye views with the drawn pose 20105
+[16:25:08.495][tid 4812] present 12600: eye LEFT, scene renders waiting 1, dropped 0, empty 3313; render thread 4812, present thread 12464
+[16:25:08.866][tid 15052] mxr: 15301 headset frames submitted
+[16:25:11.612][tid 15052] present_hook: 14401 headset-runtime Present(s) passed through
+[16:25:13.192][tid 15052] mxr diag: headset frames 15601, with layers 15598 (last 1), shouldRender 1; share RING; game copies 16186, game busy 0; headset pulls 16172, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 8093/8093 R 8092/8092 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 15606, eye views with the drawn pose 21305
+[16:25:13.744][tid 4812] frame 9600 side +1 half_ipd 0.0320 mode 0; head frames 9600, view changed by the game during the render 0 time(s)
+[16:25:21.347][tid 4812] present 13200: eye LEFT, scene renders waiting 1, dropped 0, empty 3383; render thread 4812, present thread 12464
+[16:25:21.978][tid 15052] present_hook: 15001 headset-runtime Present(s) passed through
+[16:25:23.229][tid 15052] mxr diag: headset frames 16201, with layers 16198 (last 1), shouldRender 1; share RING; game copies 16689, game busy 0; headset pulls 16653, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 8344/8344 R 8344/8343 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 16206, eye views with the drawn pose 22357
+[16:25:23.279][tid 15052] mxr: 16201 headset frames submitted
+[16:25:27.731][tid 4812] frame 10200 side +1 half_ipd 0.0320 mode 0; head frames 10200, view changed by the game during the render 0 time(s)
+[16:25:31.351][tid 4812] present 13800: eye LEFT, scene renders waiting 1, dropped 0, empty 3383; render thread 4812, present thread 12464
+[16:25:32.014][tid 15052] present_hook: 15601 headset-runtime Present(s) passed through
+[16:25:33.164][tid 15052] mxr diag: headset frames 16801, with layers 16798 (last 1), shouldRender 1; share RING; game copies 17285, game busy 0; headset pulls 17249, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 8642/8642 R 8642/8641 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 16806, eye views with the drawn pose 23557
+[16:25:37.732][tid 4812] frame 10800 side +1 half_ipd 0.0320 mode 0; head frames 10800, view changed by the game during the render 0 time(s)
+[16:25:38.215][tid 15052] mxr: 17101 headset frames submitted
+[16:25:41.373][tid 4812] present 14400: eye LEFT, scene renders waiting 1, dropped 0, empty 3383; render thread 4812, present thread 12464
+[16:25:41.390][tid 4812] present_hook: 14401 game Present(s)
+[16:25:42.018][tid 15052] present_hook: 16201 headset-runtime Present(s) passed through
+[16:25:43.134][tid 15052] mxr diag: headset frames 17401, with layers 17398 (last 1), shouldRender 1; share RING; game copies 17858, game busy 0; headset pulls 17821, headset busy 0, slow 0; open fails 0 (last hr 0x00000000); serial L 8928/8928 R 8928/8927 (game/seen); have L1 R1; swapchain image timeouts 0; head poses 17406, eye views with the drawn pose 24757
