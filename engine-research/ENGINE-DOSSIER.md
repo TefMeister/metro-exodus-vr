@@ -229,8 +229,19 @@ Not run. Two ways, chosen at run time (`[xr] share=auto|ring`), each logging whe
   `[verified-live 2026-10-15, n=2]`. The 11on12 explanation of the keyed-mutex refusal is ruled out.
 - **Head tracking**: yaw 30 deg left in the simulator turns the view left; back to 0 returns it, no drift; no
   `NOTE:` line, so the game does not rebuild the view mid-render `[verified-live 2026-10-15, n=1]`.
-  **Bug:** the recentre keeps only the heading, so the head's standing height (1.70 m) lifts the camera 1.7 units into
-  the ceiling; head at y = 0 is normal `[verified-live 2026-10-15, n=1]`. Fix: recentre the position too.
+  The washed-out "camera in the ceiling" view was the SIMULATOR's head lifted by holding **E** (the loading screen's
+  HOLD E): E raises the simulator head even with the game in front, 1.77 -> 5.77 m in 2 s `[verified-live 2026-10-15,
+  n=2]`. At standing height the view is normal with head tracking on `[verified-live 2026-10-15, n=1]`.
+  **Build b006** (`metro_eye.dll` `2e8cf7e10db7`, staging `1493c8e`, installed, `head_tracking=1`): the recentre takes
+  the head place only from a pose with a valid position (b005 took it from the first pose, which may read 0 0 0
+  `[inferred-static 2026-10-15]`) and logs it (`head place 0.00 1.77 0.00 m` live); 20,023 checks
+  `[verified-numerically 2026-10-15]`. Yaw 30 and back confirmed again on b006.
+- **`share=cpu`** (option (c), the CPU copy) built by the reader: `staging/metro-exodus-vr/share-cpu-2026-10-15/`
+  (`cd22e64`, dll `df777c76fe9f`), `share=auto` = LOCK -> RING -> CPU. Two-device test on the GTX 1660 SUPER, 1,500
+  frames with a resize: LOCK/RING/CPU ~1,490 pictures each, 0 torn, lag ~1.0/1.6/2.6 frames `[verified-numerically
+  2026-10-15, n=2]`; LOCK works on an ordinary device, so the refusal is Metro's device's own. Option (d) set aside:
+  The Evil Within froze twice with the session on the game's device on this simulator. Tear plan: `slow` count, then
+  `share=cpu`, then a shared fence, then TAA off.
 - **Focus**: Metro minimises and pauses as soon as it loses focus, even as a 1280x720 window, and stops presenting
   while minimised `[verified-live 2026-10-15, n=2]`. An OBS crash (Source Record, the second recording) at the same
   second most likely took the focus `[hypothesis]`.

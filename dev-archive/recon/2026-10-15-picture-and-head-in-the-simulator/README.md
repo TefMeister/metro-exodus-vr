@@ -9,7 +9,7 @@ Dev PC, `/lm`, build `Headset output/v0.1.0-b005` (`metro_eye.dll` `b15ec24f31af
 | `run2_metro_eye_log.txt` | run 2: the same, head tracking on |
 | `sim-run1-game-picture-both-eyes.jpg` | the simulator showing Metro's own picture, both eyes |
 | `sim-run1-while-turning.jpg` | one of three captures while the mouse turned |
-| `sim-run2-head-at-1.7m-camera-in-ceiling.jpg` | the height bug: the head at 1.70 m lifts the camera |
+| `sim-run2-head-at-1.7m-camera-in-ceiling.jpg` | the camera lifted high: the simulator head had been raised by holding E (see run 3) |
 | `sim-run2-head-at-0m-yaw0.jpg`, `-yaw30-left.jpg`, `-back-to-yaw0.jpg` | the turn test |
 | `drive.py`, `gamewin.py`, `simwin.py` | the small input and window helpers used |
 
