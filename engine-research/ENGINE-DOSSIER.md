@@ -168,7 +168,7 @@ Folded from inbox `2026-10-07-pd-headset-bridge-port.md` (the reader's port) plu
 Evidence: `dev-archive/recon/2026-10-07-headset-bridge-first-run/`.
 
 **The port** `[compile-verified 2026-10-07]`: staging `headset-bridge-2026-10-07`, The Evil Within's OpenXR bridge
-(`cd9efc2`: own D3D11 device + session on a headset thread, a shared texture per eye, game-swapchain filter) added to
+(`5ab0aad`: own D3D11 device + session on a headset thread, a shared texture per eye, game-swapchain filter) added to
 `metro_eye.dll`; head tracking not ported. Off unless `metro_eye.ini [xr] openxr=1`. Present/Present1 hooked through a
 throwaway swapchain. Eye pairing: each scene render (`0xd859f0`) queues its side, each game Present takes the oldest
 `[hypothesis: holds only if every scene render is presented exactly once; untested because no game picture flows]`.
