@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-10-07 (estate sweep) — CHECK-IN.** Inbox empty. For the keyed-mutex wall: REFramework binds OpenXR to the game's own D3D11 device and needs no shared texture (option d), plus a one-line check for an 11on12 device; topic filed, pointer sent, and the idea handed to Bulletstorm.
+**Last `/gr` pass: 2026-10-26 (estate sweep) — CHECK-IN.** Inbox empty; no Metro Exodus VR mod found. For the screen-effects row, community guides confirm only r_blur_level 0 and r_game_mblur_scale 0 (already on the board) and report no user.cfg switch for depth of field. Nothing new.
+
+_Previous: **Last `/gr` pass: 2026-10-07 (estate sweep) — CHECK-IN.** Inbox empty. For the keyed-mutex wall: REFramework binds OpenXR to the game's own D3D11 device and needs no shared texture (option d), plus a one-line check for an 11on12 device; topic filed, pointer sent, and the idea handed to Bulletstorm._
 
 _Previous: **Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** Inbox empty; board `OPEN` rows read: one search for `-build_key` found no public mention. Nothing new._
 
