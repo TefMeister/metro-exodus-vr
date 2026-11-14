@@ -31,3 +31,9 @@ distributed in this repository.
 - **praydog**, REFramework (MIT), D3D11 OpenXR binding: https://github.com/praydog/REFramework
 - **Dawn** (Chromium), D3D11on12Util.cpp: https://dawn.googlesource.com/dawn/
 - **Microsoft**, D3D11_RESOURCE_MISC_FLAG reference: https://msdn.microsoft.com/de-de/library/ff476203(v=vs.85)
+
+**Added 2026-11-14 (`/gr`):**
+
+- **RippeR37**, MetroExodusVR: https://github.com/RippeR37/MetroExodusVR
+- **farmerarmor**, MetroExodusVR: https://github.com/farmerarmor/MetroExodusVR
+- **vr.org**, article on RippeR37's mod (2026-11-09): https://vr.org/articles/metro-exodus-vr-mod-ripper37-free-pc-vr-beta-how-to-play-2026

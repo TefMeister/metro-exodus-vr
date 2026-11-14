@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-11-07 (estate sweep) — CHECK-IN.** Inbox empty; one search found no Metro Exodus VR mod by anyone else. Nothing new.
+**Last `/gr` pass: 2026-11-14 (check-ins beside the Keeper's sweep of the same day) — CHECK-IN.** Inbox empty. NEW: two other people's Metro Exodus VR mods now exist: RippeR37's MetroExodusVR (public beta v0.9.1, 2026-11-09, Standard edition only, whole main campaign with motion controls) and farmerarmor's experimental one (pre-release, quiet since 2026-09-08). Topic filed, watch-list pointer sent to `engine-research/inbox/`.
+
+_Previous: **Last `/gr` pass: 2026-11-07 (estate sweep) — CHECK-IN.** Inbox empty; one search found no Metro Exodus VR mod by anyone else. Nothing new._
 
 _Previous: **Last `/gr` pass: 2026-10-26 (estate sweep) — CHECK-IN.** Inbox empty; no Metro Exodus VR mod found. For the screen-effects row, community guides confirm only r_blur_level 0 and r_game_mblur_scale 0 (already on the board) and report no user.cfg switch for depth of field. Nothing new._
 
@@ -24,6 +26,7 @@ write-up in `topics/`. Status tags:
 
 | Date | Topic | Status | Why it matters |
 | --- | --- | --- | --- |
+| 2026-11-14 | [Two other people's Metro Exodus VR mods: RippeR37's public beta and farmerarmor's experiment](topics/2026-11-14-two-other-metro-exodus-vr-mods-ripper37-and-farmerarmor.md) | 🆕 | A playable VR mod for the Standard edition now exists (v0.9.1, 2026-11-09): a watch-list case, and the thing to build on if this project resumes |
 | 2026-10-07 | [Skip the shared texture: give the headset runtime the game's own D3D11 device](topics/2026-10-07-skip-the-shared-texture-bind-the-headset-to-the-game-device.md) | 🆕 | A fourth option for the keyed-mutex wall, used by REFramework, plus a one-line 11on12 check |
 | 2026-09-17 | [The console opens through a memory patch, settings live in `user.cfg`, and 4A's own editor is public](topics/2026-09-17-console-user-cfg-and-exodus-sdk.md) | 🆕 | Answers "how the console opens" (F1, after a public memory patch), names `r_base_fov`, and points at the official SDK docs |
 | 2026-09-17 | [4A's VR history, and what vorpX reaches on the Enhanced Edition](topics/2026-09-17-arktika-vr-history-and-vorpx-on-the-enhanced-edition.md) | 🆕 | Nobody in public has used the leftover VR code; Direct3D 12 limits vorpX to depth-based 3D |
